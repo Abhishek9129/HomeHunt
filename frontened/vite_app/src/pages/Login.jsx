@@ -1,11 +1,14 @@
 import React,{useState} from "react";
 import axios from "axios";
+import './Login.css';
+
 
 const Login=()=>{
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
 
     const handleSubmit=async(e)=>{
+      e.preventDefault();
         try{
         const response=await axios.post("http://localhost:8000/auth/login",{email,password});
         alert(response.data.message);
@@ -16,7 +19,8 @@ const Login=()=>{
         }
     }
     return (
-      <div>
+      <div className="login-container">
+        <div className="login-card">
         <h2>Login</h2>
         <form onSubmit={handleSubmit}>
         <input
@@ -28,7 +32,7 @@ const Login=()=>{
           }}
         ></input>
         <input
-          type="text"
+          type="password"
           placeholder="password"
           value={password}
           onChange={(e) => {
@@ -37,7 +41,8 @@ const Login=()=>{
         ></input>
         <button type="submit">Login</button>
         </form>
-              </div>
+        </div>
+       </div>
     );
 }
 export default Login;
