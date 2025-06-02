@@ -1,37 +1,53 @@
-import React from "react";
-import { LogIn, UserPlus } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { Carousel } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './Home.css';
+import FooterComponent from '../components/FooterComponent';
 
-function Home() {
-  const navigate = useNavigate();
-
+const Home = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-100 to-blue-300">
-      <h1 className="text-4xl font-bold mb-8 text-gray-800">
-        Welcome to My App
-      </h1>
+    <div>
+      <h1>GET YOUR DREAM HOME</h1>
+      <Carousel fade indicators={false} controls={true} interval={1000}>
+        <Carousel.Item>
+          <img
+            className="d-block w-100 carousel-image"
+            src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1200&q=80"
+                  alt="Slide 1"
+          />
+          <Carousel.Caption>
+          <h3 className="carousel-title">Get Your Dream Home</h3>
+          <p className="carousel-subtitle">Trendy styles at best prices</p>
+        </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100 carousel-image"
+          src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80"
+            alt="Slide 2"
+          />
+          <Carousel.Caption>
+          <h3 className="carousel-title">Get Your Dream Home</h3>
+          <p className="carousel-subtitle">Trendy styles at best prices</p>
+        </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100 carousel-image"
+            src="https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/b2c4ff1742f1e6bb.jpg?q=20"
+            alt="Slide 3"
+          />
+          <Carousel.Caption>
+          <h3 className="carousel-title">Get Your Dream Home</h3>
+          <p className="carousel-subtitle">Trendy styles at best prices</p>
+        </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
 
-      <div className="flex space-x-10">
-        {/* Login */}
-        <button
-          onClick={() => navigate("/login")}
-          className="flex flex-col items-center p-6 bg-white rounded-2xl shadow-lg hover:bg-blue-50 transition"
-        >
-          <LogIn className="w-12 h-12 text-blue-600 mb-2" />
-          <span className="text-lg font-medium text-blue-700">Login</span>
-        </button>
 
-        {/* Register */}
-        <button
-          onClick={() => navigate("/register")}
-          className="flex flex-col items-center p-6 bg-white rounded-2xl shadow-lg hover:bg-green-50 transition"
-        >
-          <UserPlus className="w-12 h-12 text-green-600 mb-2" />
-          <span className="text-lg font-medium text-green-700">Register</span>
-        </button>
-      </div>
+      <FooterComponent/>
     </div>
   );
-}
+};
 
 export default Home;
